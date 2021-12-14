@@ -52,13 +52,11 @@ $ cd XXX/       XXX= répertoire dans lequel on veut installer samtools
 $ wget https://github.com/samtools/samtools/releases/XXX/1.12/samtools-1.12.tar.bz2
 $ tar xvjf samtools-1.12.tar.bz2
 $ cd samtools-1.12/     (nouveau répertoire créer : samtools-1.12)
-$ ./configure
+$ ./configure --prefix=/où/installer/le/programme
 $ make
-$ sudo make install
+$ make install
 $ export PATH="$PATH:/home/user/Downloads/samtools-1.12"
-$ sudo gedit ~/.bashrc
-$ export PATH="$PATH:/home/user/Downloads/samtools-1.12"    (ajouter cette ligne à la fin du fichier bashrc)
-$ source ~/.bashrc
+
 
 Find more here : http://samtools.sourceforge.net/
 git clone git://github.com/samtools/samtools.git 
@@ -70,7 +68,7 @@ $ pip install subprocess.run
 
 
 __instructions__ = 
-$ python3 SamReader.py XXX.sam (fichier SAM à utiliser, ici XXX= mapping) ______ 1er script pour parser
+$ python3 SamReader.py XXX.sam (fichier SAM à utiliser, ici XXX= mapping) _____1er script pour parser
 $ python3 SamtoolsProject.py XXX.sam       _______ 2ème script utilisant Samtools 
 !! Faites en sorte d'avoir toujours le fichier SAM à analyser dans le même répertoire que les 2 script !!
 
