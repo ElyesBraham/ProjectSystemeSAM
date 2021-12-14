@@ -66,8 +66,8 @@ def parse() :
                 if line.startswith("@"):
                     header.append(line)
                     print("Header : ", header)
-                else:                                                       
-                    if len(header) == 0: # verifier que la section header existe
+                else:     # verifier que la section header existe                                                  
+                    if len(header) == 0: 
                         print("Erreur : pas de header présent")
                         exit()
                     else :
@@ -76,8 +76,8 @@ def parse() :
                         splitLines = line.split("\t")
                         flag.append(splitLines[1]) 
                         cigar.append(splitLines[5]) 
-    print("FLAG : ")
-    if len(flag)==0 : #vérifier que la liste FLAG existe 
+    print("FLAG : ") #vérifier que la liste FLAG existe 
+    if len(flag)==0 : 
             print("Erreur: pas de FLAG")
     else :
             print(flag)  
@@ -85,8 +85,8 @@ def parse() :
     for file in flag:
             print("BAM FLAG : ", flagBinary(flag))
 
-    print("CIGAR:")
-    if len(cigar)==0 : #vérifier que la liste CIGAR existe 
+    print("CIGAR:")  #vérifier que la liste CIGAR existe 
+    if len(cigar)==0 :
             print ("Erreur : pas de CIGAR")
     else :      
             print(cigar)
@@ -147,6 +147,7 @@ def partiallyMapped(line):
 
 
 ### Analyse the CIGAR = regular expression that summarise each read alignment ###
+
 def readCigar(cigar): 
    
     ext = re.findall('\w',cigar) # split cigar 
@@ -174,6 +175,7 @@ def readCigar(cigar):
     return dico
 
 ### Analyse the CIGAR = regular expression that summarise each read alignment ###
+
 def percentMutation(dico):
         
     totalValue = 0 # Total number of mutations
