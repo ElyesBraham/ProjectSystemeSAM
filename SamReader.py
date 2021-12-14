@@ -8,16 +8,12 @@ import re
 
 
 def parse() :  
-    print("Nom du script: \t"  + sys.argv[0])
-    print("Nom du fichier à analyser: \t"+sys.argv[1])
-    file = sys.argv[1]
+    if len(sys.argv) == 2 :    #Tester le bon nombre de paramètre (processing d'un fichier à la fois)
+        print("Bonjour, \n Début du check du fichier " + sys.argv[1])
+        print("Nom du script: \t"  + sys.argv[0])
+        print("Nom du fichier à analyser: \t"+ sys.argv[1])
 
     ####################################################### Check
-
-    #Tester le bon nombre de paramètre (processing d'un fichier à la fois)
-
-    if len(sys.argv) == 2 :
-            print("Bonjour, \n Début du check du fichier " + sys.argv[1])
   
     #L'argument 1 doit être un fichier existant
 
@@ -63,8 +59,9 @@ def parse() :
     cigar = []
     splitLines = []
     file = open(sys.argv[1],"r")
-    contenu = file.readlines()
-    for line in contenu:
+    contenu = file.readline()
+    readline = 0 
+    while line in contenu:
                 if line.startswith("@"):
                     header.append(line)
                     print("Header : ", header)
