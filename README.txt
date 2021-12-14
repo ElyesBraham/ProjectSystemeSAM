@@ -69,11 +69,6 @@ Installer subprocess
 $ pip install subprocess.run
 
 
-
-__download__ = "Les 2 scripts sont  à télécharger sur ce lien:"
-https://github.com/ElyesBraham/ProjectSystemeSAM 
-
-
 __instructions__ = 
 $ python3 SamReader.py XXX.sam (fichier SAM à utiliser, ici XXX= mapping) ______ 1er script pour parser
 $ python3 SamtoolsProject.py XXX.sam       _______ 2ème script utilisant Samtools 
