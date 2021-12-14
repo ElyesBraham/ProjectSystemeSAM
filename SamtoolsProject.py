@@ -22,27 +22,24 @@ def analyse() :
 
                 #"http://broadinstitute.github.io/picard/explain-flags.html"
                 
+                #read paired : 0x1
+                #read mapped in proper pair : 0x2
+                #read unmapped : 0x4
+                #mate unmapped : 0x8
+                #100M = Match pour 100 positions d'alignement (ceux qu'on va exclure)
+                
                 ################################ read non mappés extraits 
-
-                #FLAG 0x4 = read unmapped ?
-                # ou l'inverse de 0x2  : read mapped in proper pair (-F contraire de -f) 
 
                 "samtools view -F 0x2 mapping.sorted.bam > only_unmapped.fasta", 
                 "samtools view -F 0x2 mapping.sorted.bam | echo 'Nombre de read non mappés:' $(wc -l) >> summary_file.txt ", # nombre de read non mappés mit dans un fichier txt
 
                 ################################ read partiellement mappés extraits
-
-                #FLAG 0x2 = read mapped in proper pair 
-                # 100M = Match pour 100 positions d'alignement (ceux qu'on va exclure)
                 
                 "samtools view -f 0x2  mapping.sorted.bam | grep -v '100M' > only_partially_mapped.fasta",
                 "samtools view -f 0x2  mapping.sorted.bam | grep -v '100M' | echo 'Nombre de read partiellement mappés:' $(wc -l) >> summary_file.txt",
 
                 ################################ paires de reads où un seul read de la paire est entièrement mappé et l'autre non mappé
-                #read paired : 0x1
-                #read mapped in proper pair : 0x2
-                #read unmapped : 0x4
-                #mate unmapped : 0x8
+                
 
                 "samtools view -f 0x1 -f 0x4 -F 0x8 mapping.sorted.bam > read_unmapped_mate_mapped.fasta",
                 "samtools view -f 0x1 -f 0x8 -F 0x4 mapping.sorted.bam > read_mapped__mate_unmapped.fasta",
