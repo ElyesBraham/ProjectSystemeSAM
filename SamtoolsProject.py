@@ -51,7 +51,6 @@ def analyse() :
 
                 "samtools view -f 0x4 -F 0x8 mapping.sorted.bam | grep -v '100M' | echo 'Nombre de paires de read avec le read mapped et le mate partially mapped:' $(wc -l) >> summary_file.txt",
                 "samtools view -F 0x4 -F 0x8 mapping.sorted.bam | grep -v '100M' | echo 'Nombre de paires de read avec le read partially mapped et le mate mapped:' $(wc -l) >> summary_file.txt",
-                "samtools idxstats mapping.sorted.bam >> summary_file.txt", #résumé statistique des alignements (mappés et non mappés)
                 "rm mapping.sorted.bam mapping.sorted.bam.bai mapping.bam"): #enlever les fichiers inutiles
                 call(cmd, shell=True) 
 
