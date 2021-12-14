@@ -30,8 +30,8 @@ def analyse() :
                 
                 ################################ read non mappés extraits 
 
-                "samtools view -F 0x2 mapping.sorted.bam > only_unmapped.fasta", 
-                "samtools view -F 0x2 mapping.sorted.bam | echo 'Nombre de read non mappés:' $(wc -l) >> summary_file.txt ", # nombre de read non mappés mit dans un fichier txt
+                "samtools view -f 0x4 mapping.sorted.bam > only_unmapped.fasta", 
+                "samtools view -f 0x4 mapping.sorted.bam | echo 'Nombre de read non mappés:' $(wc -l) >> summary_file.txt ", # nombre de read non mappés mit dans un fichier txt
 
                 ################################ read partiellement mappés extraits
                 
