@@ -76,10 +76,10 @@ def parse() :
                         unmapped(line)
                         partiallyMapped(line)
                         splitLines = line.split("\t")
-                        flag.append(splitLines[1]) #insérer le contenu du flag dans la liste flag
-                        cigar.append(splitLines[5]) #insérer le contenu du cigar dans la liste cigar
+                        flag.append(splitLines[1]) 
+                        cigar.append(splitLines[5]) 
     print("FLAG : ")
-    if len(flag)==0 : #vérifier que la liste FLAG existe bien
+    if len(flag)==0 : #vérifier que la liste FLAG existe 
             print("Erreur: pas de FLAG")
     else :
             print(flag)  
@@ -88,7 +88,7 @@ def parse() :
             print("BAM FLAG : ", flagBinary(flag))
 
     print("CIGAR:")
-    if len(cigar)==0 : #vérifier que la liste CIGAR existe bien
+    if len(cigar)==0 : #vérifier que la liste CIGAR existe 
             print ("Erreur : pas de CIGAR")
     else :      
             print(cigar)
@@ -223,9 +223,6 @@ def globalPercentCigar():
                         +"Sequence Match : "+str(round(Egal/nbReads,2))+"\n"
                         +"Sequence Mismatch : "+str(round(X/nbReads,2))+"\n")
 
-#####################################################################################################
-
-#####################################################################################################
 
 #####################################################################################################
 
