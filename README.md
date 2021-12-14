@@ -1,2 +1,0 @@
-# ProjectSystemeSAM
-SamReader
